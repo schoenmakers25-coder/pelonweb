@@ -21,8 +21,10 @@ function Nav({
   return /*#__PURE__*/React.createElement("header", {
     className: onDark ? 'pl-nav-ondark' : '',
     style: {
-      position: 'sticky',
+      position: 'fixed',
       top: 0,
+      left: 0,
+      right: 0,
       zIndex: 40,
       background: scrolled ? 'color-mix(in srgb, var(--pl-canvas) 86%, transparent)' : 'transparent',
       backdropFilter: scrolled ? 'saturate(180%) blur(14px)' : 'saturate(100%) blur(0px)',
@@ -219,8 +221,7 @@ function VideoHero() {
       display: 'flex',
       alignItems: 'flex-end',
       overflow: 'hidden',
-      background: '#0B0D0E',
-      marginTop: '-66px'
+      background: '#0B0D0E'
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {

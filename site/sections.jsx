@@ -16,7 +16,7 @@ function Nav({ overDark }) {
   const onDark = overDark && !scrolled;
   return (
     <header className={onDark ? 'pl-nav-ondark' : ''} style={{
-      position: 'sticky', top: 0, zIndex: 40,
+      position: 'fixed', top: 0, left: 0, right: 0, zIndex: 40,
       background: scrolled ? 'color-mix(in srgb, var(--pl-canvas) 86%, transparent)' : 'transparent',
       backdropFilter: scrolled ? 'saturate(180%) blur(14px)' : 'saturate(100%) blur(0px)',
       WebkitBackdropFilter: scrolled ? 'saturate(180%) blur(14px)' : 'saturate(100%) blur(0px)',
@@ -79,7 +79,7 @@ function HeroCopy({ align = 'left' }) {
 function VideoHero() {
   const [hasVideo, setHasVideo] = React.useState(false);
   return (
-    <section id="top" style={{ position: 'relative', minHeight: 'min(90vh, 860px)', display: 'flex', alignItems: 'flex-end', overflow: 'hidden', background: '#0B0D0E', marginTop: '-66px' }}>
+    <section id="top" style={{ position: 'relative', minHeight: 'min(90vh, 860px)', display: 'flex', alignItems: 'flex-end', overflow: 'hidden', background: '#0B0D0E' }}>
       {/* cinematic placeholder backdrop (shows until the real clip is dropped in) */}
       <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(130% 100% at 72% 18%, #20262b 0%, #11151a 55%, #090b0d 100%)' }} />
       <div style={{ position: 'absolute', inset: 0, color: 'var(--pl-accent)', opacity: 0.16, pointerEvents: 'none' }}>
