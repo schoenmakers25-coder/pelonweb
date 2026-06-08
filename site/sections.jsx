@@ -9,7 +9,7 @@ const PLD = {
 function Nav({ overDark }) {
   const [scrolled, setScrolled] = React.useState(false);
   React.useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 16);
+    const onScroll = () => setScrolled(window.scrollY > 48);
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
@@ -18,9 +18,10 @@ function Nav({ overDark }) {
     <header className={onDark ? 'pl-nav-ondark' : ''} style={{
       position: 'sticky', top: 0, zIndex: 40,
       background: scrolled ? 'color-mix(in srgb, var(--pl-canvas) 86%, transparent)' : 'transparent',
-      backdropFilter: scrolled ? 'saturate(180%) blur(14px)' : 'none',
+      backdropFilter: scrolled ? 'saturate(180%) blur(14px)' : 'saturate(100%) blur(0px)',
+      WebkitBackdropFilter: scrolled ? 'saturate(180%) blur(14px)' : 'saturate(100%) blur(0px)',
       borderBottom: scrolled ? '1px solid var(--pl-hairline)' : '1px solid transparent',
-      transition: 'background .3s ease, border-color .3s ease'
+      transition: 'background .25s ease, border-color .25s ease, backdrop-filter .25s ease, -webkit-backdrop-filter .25s ease'
     }}>
       <div style={{ maxWidth: 'var(--pl-container)', margin: '0 auto', padding: '14px clamp(20px, 5vw, 48px)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         <a href="#top"><Wordmark size={24} glyph={32} tagline color={onDark ? '#fff' : undefined} taglineColor={onDark ? 'rgba(255,255,255,0.7)' : undefined} /></a>
