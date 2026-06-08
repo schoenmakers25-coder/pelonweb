@@ -344,6 +344,7 @@ function SequencedVideo({
   fade = 1.2,
   rate = 0.85,
   onReady,
+  poster,
   style = {}
 }) {
   const refs = React.useRef([]);
@@ -390,6 +391,7 @@ function SequencedVideo({
     muted: true,
     playsInline: true,
     preload: "auto",
+    poster: i === 0 ? poster : undefined,
     onTimeUpdate: handleTime(i),
     onLoadedData: () => {
       if (i === 0 && !ready) {

@@ -147,7 +147,7 @@ function BgVideo({ src, dim = 0, style = {}, onReady }) {
 // ── Sequenced crossfade video: plays clips in order, gently dissolving between
 //    them and looping. Reads each clip's real duration at runtime, so no timings
 //    need hardcoding. `rate` < 1 slows playback for a calmer, less busy feel. ──
-function SequencedVideo({ sources = [], fade = 1.2, rate = 0.85, onReady, style = {} }) {
+function SequencedVideo({ sources = [], fade = 1.2, rate = 0.85, onReady, poster, style = {} }) {
   const refs = React.useRef([]);
   const [front, setFront] = React.useState(0);
   const [ready, setReady] = React.useState(false);
@@ -181,7 +181,7 @@ function SequencedVideo({ sources = [], fade = 1.2, rate = 0.85, onReady, style 
     <React.Fragment>
       {sources.map((src, i) => (
         <video key={src} ref={(el) => (refs.current[i] = el)}
-          muted playsInline preload="auto"
+          muted playsInline preload="auto" poster={i === 0 ? poster : undefined}
           onTimeUpdate={handleTime(i)}
           onLoadedData={() => { if (i === 0 && !ready) { setReady(true); onReady && onReady(); } }}
           style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover',

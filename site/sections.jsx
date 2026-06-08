@@ -92,6 +92,7 @@ function VideoHero() {
         <SequencedVideo
           sources={['assets/pelon-intro-a.mp4', 'assets/pelon-intro.mp4']}
           fade={1.4} rate={0.82}
+          poster="assets/hero-poster.jpg"
           onReady={() => setHasVideo(true)} />
       </div>
 
