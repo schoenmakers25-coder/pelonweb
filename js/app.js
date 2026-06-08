@@ -64,7 +64,9 @@ styleEl.textContent = `
   .pl-nav-ondark .pl-navlink { color: rgba(255,255,255,0.85); }
   .pl-nav-ondark .pl-navlink:hover { color: #fff; }
   .pl-footlink { transition: color .15s ease; }
+  @-webkit-keyframes pl-marquee { from { -webkit-transform: translateX(0); } to { -webkit-transform: translateX(-33.333%); } }
   @keyframes pl-marquee { from { transform: translateX(0); } to { transform: translateX(-33.333%); } }
+  .pl-marquee-track { -webkit-animation: pl-marquee 28s linear infinite; animation: pl-marquee 28s linear infinite; will-change: transform; }
 
   @media (max-width: 900px) {
     .pl-navlinks { display: none !important; }
@@ -86,7 +88,7 @@ styleEl.textContent = `
     .pl-loginlink { display: none; }
   }
   @media (prefers-reduced-motion: reduce) {
-    .pl-marquee-track { animation: none !important; }
+    .pl-marquee-track { -webkit-animation: none !important; animation: none !important; }
   }
 `;
 document.head.appendChild(styleEl);

@@ -211,7 +211,7 @@ function ProofStrip() {
   const items = ['Race', 'Koffieritjes', 'MTB', 'Gravel', 'Verenigingen', 'Evenementen', 'Trainingen', 'Toerclubs', 'Vrienden'];
   return (
     <section style={{ borderTop: '1px solid var(--pl-hairline)', borderBottom: '1px solid var(--pl-hairline)', background: 'var(--pl-surface-2)', overflow: 'hidden' }}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: 0, whiteSpace: 'nowrap', animation: 'pl-marquee 28s linear infinite' }} className="pl-marquee-track">
+      <div style={{ display: 'flex', alignItems: 'center', gap: 0, whiteSpace: 'nowrap' }} className="pl-marquee-track">
         {[...items, ...items, ...items].map((t, i) =>
         <span key={i} style={{ display: 'inline-flex', alignItems: 'center', gap: 28, padding: '16px 0', fontSize: 16, fontWeight: 700, color: 'var(--pl-ink-3)', letterSpacing: '-0.01em' }}>
             {t}<span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--pl-accent)', margin: '0 28px' }} />

@@ -595,8 +595,7 @@ function ProofStrip() {
       display: 'flex',
       alignItems: 'center',
       gap: 0,
-      whiteSpace: 'nowrap',
-      animation: 'pl-marquee 28s linear infinite'
+      whiteSpace: 'nowrap'
     },
     className: "pl-marquee-track"
   }, [...items, ...items, ...items].map((t, i) => /*#__PURE__*/React.createElement("span", {
