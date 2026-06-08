@@ -2,8 +2,7 @@
 
 const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   "heroLayout": "video",
-  "accent": "#FF5A3C",
-  "dark": false
+  "accent": "#FF5A3C"
 }/*EDITMODE-END*/;
 
 const ACCENTS = ['#FF5A3C', '#1FAFBE', '#3E8B5C', '#C8822E', '#7B5BD6'];
@@ -21,13 +20,10 @@ function App() {
   useReveal();
 
   React.useEffect(() => { applyAccent(t.accent); }, [t.accent]);
-  React.useEffect(() => {
-    document.documentElement.setAttribute('data-theme', t.dark ? 'dark' : 'light');
-  }, [t.dark]);
 
   return (
     <div style={{ minHeight: '100vh', backgroundColor: 'var(--pl-canvas)' }}>
-      <Nav dark={t.dark} onToggleTheme={() => setTweak('dark', !t.dark)} overDark={t.heroLayout === 'video'} />
+      <Nav overDark={t.heroLayout === 'video'} />
       <main>
         <Hero layout={t.heroLayout} />
         <ProofStrip />
@@ -47,8 +43,6 @@ function App() {
         <TweakSection label="Brand" />
         <TweakColor label="Accent" value={t.accent} options={ACCENTS}
           onChange={(v) => setTweak('accent', v)} />
-        <TweakToggle label="Donkere modus" value={t.dark}
-          onChange={(v) => setTweak('dark', v)} />
       </TweaksPanel>
     </div>
   );

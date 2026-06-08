@@ -2,8 +2,7 @@
 
 const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   "heroLayout": "video",
-  "accent": "#FF5A3C",
-  "dark": false
+  "accent": "#FF5A3C"
 } /*EDITMODE-END*/;
 const ACCENTS = ['#FF5A3C', '#1FAFBE', '#3E8B5C', '#C8822E', '#7B5BD6'];
 function applyAccent(hex) {
@@ -19,17 +18,12 @@ function App() {
   React.useEffect(() => {
     applyAccent(t.accent);
   }, [t.accent]);
-  React.useEffect(() => {
-    document.documentElement.setAttribute('data-theme', t.dark ? 'dark' : 'light');
-  }, [t.dark]);
   return /*#__PURE__*/React.createElement("div", {
     style: {
       minHeight: '100vh',
       backgroundColor: 'var(--pl-canvas)'
     }
   }, /*#__PURE__*/React.createElement(Nav, {
-    dark: t.dark,
-    onToggleTheme: () => setTweak('dark', !t.dark),
     overDark: t.heroLayout === 'video'
   }), /*#__PURE__*/React.createElement("main", null, /*#__PURE__*/React.createElement(Hero, {
     layout: t.heroLayout
@@ -59,10 +53,6 @@ function App() {
     value: t.accent,
     options: ACCENTS,
     onChange: v => setTweak('accent', v)
-  }), /*#__PURE__*/React.createElement(TweakToggle, {
-    label: "Donkere modus",
-    value: t.dark,
-    onChange: v => setTweak('dark', v)
   })));
 }
 

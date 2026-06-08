@@ -7,8 +7,6 @@ const PLD = {
 
 // ════════════════════════ NAV ════════════════════════
 function Nav({
-  dark,
-  onToggleTheme,
   overDark
 }) {
   const [scrolled, setScrolled] = React.useState(false);
@@ -70,25 +68,7 @@ function Nav({
       alignItems: 'center',
       gap: 12
     }
-  }, /*#__PURE__*/React.createElement("button", {
-    className: "pl-tap",
-    onClick: onToggleTheme,
-    title: "Licht / donker",
-    style: {
-      width: 38,
-      height: 38,
-      borderRadius: '50%',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      color: onDark ? '#fff' : 'var(--pl-ink-2)',
-      boxShadow: `inset 0 0 0 1.5px ${onDark ? 'rgba(255,255,255,0.3)' : 'var(--pl-hairline-2)'}`
-    }
-  }, /*#__PURE__*/React.createElement(Icon, {
-    name: dark ? 'flame' : 'star',
-    size: 17,
-    fill: dark
-  })), /*#__PURE__*/React.createElement("a", {
+  }, /*#__PURE__*/React.createElement("a", {
     href: "https://app.pelon.cc",
     target: "_blank",
     rel: "noopener noreferrer",

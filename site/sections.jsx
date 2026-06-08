@@ -6,7 +6,7 @@ const PLD = {
 };
 
 // ════════════════════════ NAV ════════════════════════
-function Nav({ dark, onToggleTheme, overDark }) {
+function Nav({ overDark }) {
   const [scrolled, setScrolled] = React.useState(false);
   React.useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16);
@@ -30,12 +30,6 @@ function Nav({ dark, onToggleTheme, overDark }) {
           <a href="#nieuws" className="pl-navlink">Nieuws</a>
         </nav>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-          <button className="pl-tap" onClick={onToggleTheme} title="Licht / donker" style={{
-            width: 38, height: 38, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center',
-            color: onDark ? '#fff' : 'var(--pl-ink-2)', boxShadow: `inset 0 0 0 1.5px ${onDark ? 'rgba(255,255,255,0.3)' : 'var(--pl-hairline-2)'}`
-          }}>
-            <Icon name={dark ? 'flame' : 'star'} size={17} fill={dark} />
-          </button>
           <a href="https://app.pelon.cc" target="_blank" rel="noopener noreferrer" className="pl-loginlink" style={{ fontSize: 15, fontWeight: 700, color: onDark ? 'rgba(255,255,255,0.85)' : 'var(--pl-ink-2)' }}>Inloggen</a>
           <Btn href="https://app.pelon.cc" target="_blank" rel="noopener noreferrer" size="sm">Probeer nu gratis</Btn>
         </div>
